@@ -14,12 +14,12 @@ body {
   width: 100%;
   background-image: url(images/pro.jpg);
   background-repeat: no-repeat;
-  background-size: 550px;
-  background-position: calc(80%);
+  background-size: contain;
+  background-position: right;
   background-color: black;
 }
 .container {
-  padding: 10px 10%;
+  padding: 10px 5%;
 }
 nav {
   display: flex;
@@ -27,15 +27,23 @@ nav {
   justify-content: space-between;
   flex-wrap: wrap;
 }
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
 nav ul li {
-  display: inline-block;
-  margin: 30px 50px;
+  margin-right: 60px;
 }
 nav ul li a {
   text-decoration: none;
   color: #fff;
-  font-size: 25px;
-  position: relative;
+  font-size: 24px;
 }
 nav ul li a::after {
   content: " ";
@@ -52,7 +60,6 @@ nav ul li a:hover::after {
 }
 .header-text {
   color: #f2f2f2;
-  margin-top: 10%;
   font-size: 30px;
 }
 .header-text h1 span {
@@ -64,9 +71,8 @@ nav ul li a:hover::after {
 }
 /* ------about----------- */
 #about {
-  padding: 200px 0;
+  padding: 100px 0;
   background-color: rgb(57, 54, 54);
-  height: 80vh;
 }
 .row {
   display: flex;
@@ -87,7 +93,7 @@ nav ul li a:hover::after {
   font-size: 60px;
   color: #ffffff;
   font-weight: 600;
-  margin-top: 90px;
+  margin-top: 50px;
 }
 .para {
   font-size: 22px;
@@ -124,6 +130,7 @@ h1 {
 .sub-title-skill:hover::after {
   width: 10%;
 }
+/* Skills */
 #skills {
   padding: 150px 0;
   background-color: rgb(10, 10, 10);
@@ -147,7 +154,7 @@ h1 {
   border-radius: 10px;
   box-shadow: 0 0 10px #f2f2f2;
   position: relative;
-  width: 30%;
+  width: 23%;
   left: 40%;
   font-size: 22px;
   margin-top: 40px;
@@ -157,7 +164,6 @@ h1 {
 .skills-name {
   display: flex;
   align-items: center;
-  margin-left: 5px;
 }
 .skill-title {
   color: #f1ebeb;
@@ -180,7 +186,7 @@ h1 {
 }
 .skill-percentage {
   position: relative;
-  left: 90px;
+
   color: rgba(24, 244, 116, 0.879);
 }
 #percentage {
@@ -195,16 +201,27 @@ h1 {
 #reactpercentage {
   margin-left: 10px;
 }
+/* Work Section */
 #work {
-  padding: 150px 0;
+  padding: 100px 0;
   background-color: rgb(57, 54, 54);
   color: #fff;
-  height: 80vh;
+  height: 120vh;
 }
 .services-list {
   display: flex;
-  grid-template-columns: repeat(autofit, minmax(250px, 1fr));
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 30px;
+}
+.services-list div {
+  background-color: #262626;
+  padding: 30px;
+  font-size: 13px;
+  font-weight: 300;
+  flex-basis: 30%;
+  margin: 10px;
+  text-align: center;
 }
 .learnmore {
   font-size: 16px;
@@ -219,7 +236,7 @@ h1 {
   font-size: 60px;
   color: #ffffff;
   font-weight: 600;
-  margin-top: 90px;
+  text-align: center;
 }
 .sub-title-work:hover::after {
   width: 50%;
@@ -240,15 +257,11 @@ h1 {
 h1 span {
   color: #ff004f;
 }
-.services-list div {
-  background-color: #262626;
-  padding: 30px;
-  font-size: 13px;
-  font-weight: 300;
-}
+
 #image {
   font-size: 28px;
 }
+/* Contact section */
 #contact {
   padding: 150px 0;
   background-color: black;
@@ -311,4 +324,96 @@ form textarea {
   color: #fff;
   font-size: 18px;
   border-radius: 5px;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+  .about-col-1,
+  .about-col-2 {
+    flex-basis: 100%;
+    text-align: center;
+  }
+
+  .header-text {
+    font-size: 25px;
+  }
+
+  nav ul li {
+    margin: 15px 10px;
+  }
+
+  .skills-data {
+    width: 90%;
+  }
+
+  .services-list div {
+    flex-basis: 45%;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-text {
+    font-size: 20px;
+  }
+
+  nav ul {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+    flex-direction: column;
+  }
+
+  .services-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .services-list div {
+    flex-basis: 80%;
+  }
+
+  .skills-data {
+    width: 100%;
+    left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-text {
+    font-size: 16px;
+    margin-top: 50px;
+  }
+
+  .sub-title,
+  .sub-title-skill,
+  .sub-title-work {
+    font-size: 30px;
+  }
+
+  .para {
+    font-size: 16px;
+  }
+
+  .skills-data {
+    flex-direction: column;
+    align-items: center;
+    left: 0;
+  }
+
+  .skill-percentage {
+    margin-right: 0;
+  }
+
+  .services-list div {
+    flex-basis: 100%;
+    margin: 10px 0;
+  }
+
+  nav ul {
+    width: 100%;
+    text-align: center;
+  }
 }
